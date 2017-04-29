@@ -1,5 +1,10 @@
 #!/usr/bin/perl
 
+# This set continues off of hw2 and introduces RESTful web services.
+# I've been
+# mostly working on the web crawler and threading/forking which is why this
+# hasn't been updated as much (4/28/17).
+
 use strict;
 use warnings;
 

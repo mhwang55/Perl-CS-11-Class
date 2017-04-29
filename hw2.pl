@@ -1,5 +1,10 @@
 #!/usr/bin/perl
 
+# The objective of this set is to introduce students to SQLite and how it
+# meshes with Perl's functionality.  This one will be a bit shorter than the
+# rest, as it relies mostly on Perl's regexes (covered in hw1) and the commands
+# from SQLite.
+
 use DBI;
 use strict;
 use warnings;

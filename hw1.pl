@@ -1,4 +1,11 @@
 #!/usr/bin/perl
+
+# The objective of this set is to introduce various Perl concepts.  What's the
+# difference blocks compare similar expressions and how small differences in
+# syntax create big differences.  There are some exercises from Learning Perl
+# by O'Reilly included.  There are also questions asking what various code
+# blocks do and how to solve seemingly solved problems.
+
 use strict;
 use warnings;
 
