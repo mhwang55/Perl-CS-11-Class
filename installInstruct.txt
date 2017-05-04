@@ -1,0 +1,26 @@
+Note: All commands run from terminal
+Anything inside <> is modifiable.  Anything not enclosed should be read
+verbatim
+
+********************************************************************
+
+To install a module from CPAN:
+cpan App::cpanminus
+cpanm <Module>::<Name>
+
+For more information, go to
+http://www.cpan.org/modules/INSTALL.html
+
+********************************************************************
+
+To install SQLite 3 module:
+sudo apt-get update
+sudo apt-get install sqlite3 libsqlite3-dev
+
+For more information, go to
+https://www.tutorialspoint.com/sqlite/sqlite_installation.htm
+and
+https://www.sqlite.org/download.html
+
+********************************************************************
+
