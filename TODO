@@ -5,3 +5,25 @@ TODO list
 -- some comments/docs on individual files i.e. what this file is all about
 -- flesh out the example programs
 
+== 5/4
+
+General: want a list of assignments and brief discussion in a separate text
+file.
+
+General: try to structure code better e.g. put in functions where appropriate
+
+hw 4: refactor, clean up, more docs, DEBUG.
+
+hw 5: need to have a task for which threads are useful e.g. a threaded web
+crawler.  Consider copying/modifying hw 4 code for this.
+
+== Ideas for future labs.
+
+Rough increasing order of difficulty:
+
+Write grep in perl.  
+Write wget/curl in perl.
+Write an SCP clone.
+Write a shell in perl.  Fork/exec.
+Write a simple text editor in perl.  Use curses.
+
