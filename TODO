@@ -17,13 +17,20 @@ hw 4: refactor, clean up, more docs, DEBUG.
 hw 5: need to have a task for which threads are useful e.g. a threaded web
 crawler.  Consider copying/modifying hw 4 code for this.
 
-== Ideas for future labs.
+== 5/10
+
+-- Upload doc with brief description of each lab.
+-- Flesh out web crawler (lab 5).
+-- (maybe) flesh out grep program (lab 6).
+-- Build minimal shell (lab 7) according to shell-features doc (just the first
+   features).
+-- Lab 8: Advanced shell features from shell-features lab.
+
+== Other ideas.
 
 Rough increasing order of difficulty:
 
-Write grep in perl.  
 Write wget/curl in perl.
 Write an SCP clone.
-Write a shell in perl.  Fork/exec.
 Write a simple text editor in perl.  Use curses.
 
