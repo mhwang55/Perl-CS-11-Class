@@ -1,0 +1,26 @@
+Feature list for shell
+======================
+
+* Simplest version:
+  -- read in a line
+  -- split on whitespace
+  -- do appropriate fork/exec
+  -- not even a PATH env variable, so need full paths
+
+* Add PATH support so don't need full paths.
+
+* Get/set environment variables.
+  -- getenv, setenv functions
+
+* Line editing support (look for CPAN module; worst case can use rlwrap).
+  http://search.cpan.org/~flora/Term-ReadLine-1.14/lib/Term/ReadLine.pm
+  -- also need to install Term::ReadLine::Gnu
+  -- also handles history but you need to manually invoke it
+
+* directory stack i.e. pushd popd dirs
+
+* $ support for shell variables
+
+* control structures (probably avoid for now)
+  -- e.g. for foreach while 
+
