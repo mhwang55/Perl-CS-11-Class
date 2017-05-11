@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 # below is c pseudocode
-int main (int argc, char **argv)
+sub shell # args are num, lstArgs (is a list)
 {
   while (1)
   {
