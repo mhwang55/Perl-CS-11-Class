@@ -1,0 +1,30 @@
+#####  Descriptions of each hw in perl  #####
+
+hw1
+Introduction to perl, interesting commands, regexes, loosely typed
+
+hw2
+Databases with perl.  Create a minimal database with perl.  Add to or get data
+from database
+
+hw3
+Servers with perl.  Use server to run a perl script or use perl to run a server
+command
+
+hw4
+Webcrawler with perl.  Scrape data from websites.  May go deeper into
+formatting stuff
+
+hw5
+Threading with perl.  May use webcrawler from hw4 and multithread it
+
+hw6
+grep with perl.  Emulate the grep command in perl
+
+hw7
+Shell with perl (part 1).  Basic readline from stdin, execute command/fork,
+add in history support
+
+hw8
+Shell with perl (part 2).  Control structures, parsing?, file support
+
