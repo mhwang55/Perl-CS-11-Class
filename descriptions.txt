@@ -15,11 +15,11 @@ hw4
 Webcrawler with perl.  Scrape data from websites.  Refactoring complete
 
 hw5
-#Threading with perl.  May use webcrawler from hw4 and multithread it
-OO programming?  Maybe another shell command such as cat
+OO programming.  Write versions of grep and cat in perl.  They share a lot
+of code, so use OO to factor out common code.
 
 hw6
-grep with perl.  Emulate the grep command in perl
+???
 
 hw7
 Shell with perl (part 1).  Basic readline from stdin, execute command/fork,
