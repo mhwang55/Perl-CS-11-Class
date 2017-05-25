@@ -14,14 +14,14 @@ command
 hw4
 Webcrawler with perl.  Scrape data from websites.  Refactoring complete
 
-hw5
+hw5  << WORK ON THIS
 OO programming.  Write versions of grep and cat in perl.  They share a lot
 of code, so use OO to factor out common code.
 
 hw6
 ???
 
-hw7
+hw7  << WORK ON THIS, use fork/exec
 Shell with perl (part 1).  Basic readline from stdin, execute command/fork,
 add in history support
 
