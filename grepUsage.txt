@@ -1,0 +1,3 @@
+Command usage
+grep PATTERN [filename1]
+Anything inside [] is optional

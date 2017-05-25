@@ -1,39 +1,70 @@
 #!/usr/bin/perl
 
-# The objective of this set is to create a parser for a shell
+# The objective of this set is to create a shell.  The shell needs to be able
+# to read from standard input, parse the command string into a program and
+# args, and execute it.
+
+# It should also be able to read in text files. (bonus maybe?)
+
+# To exit out of the shell, just hit Ctrl-C
 
 use strict;
 use warnings;
+use Term::ReadLine;
 
-# below is c pseudocode
-
-sub init_info # args are parseInfo
+# no arguments to shell.  Just run it
+sub shell
 {
-  initialize parseInfo array or hash
-}
-
-# parse a single command
-sub parse_command # args are command, comm
-{
-}
-
-#  parse commandline for space separated commands
-sub parseInfo #args are cmdline
-{
-  foreach cmd in cmdline
+  print(">> ");
+  while (<>)
   {
-    if (cmd == command)
+    print(">> ");
+    chomp;
+
+    # if just an enter, skip the rest of the loop
+    next if (!$_);
+
+    # get the command and the arguments to the command
+    my @input = split / /, $_;
+    open FILE, '<', "commands.txt";
+    while(<FILE>)
     {
-      parse_command(cmd, type)
+      chomp;
+
+      # get the name of the command, the corresponding executable, and the
+      # number of expected arguments
+      my ($cmdName, $script, $argNum, $usageFile) = split / /, $_;
+      if ($input[0] eq $cmdName)
+      {
+        my $args = "";
+        shift @input;
+
+        # if the inputs are less than the expected number of arguments, print
+        # out the usage file instead
+        if ($argNum > @input)
+        {
+          system("vim $usageFile");
+#          open USAGE, '<', $usageFile;
+#          while(<USAGE>)
+#          {
+#            print($_);
+#          }
+#          close USAGE;
+          next;
+        }
+
+        # if command name is found, then concatenate the input arguments
+        # together and then run a system command
+        for (my $x = 0; $x < $argNum; $x++)
+        {
+          $args .= " $input[$x]";
+        }
+        print("$args\n");
+        system("./$script$args");
+      }
     }
+    close FILE;
   }
 }
 
-# prints out parse struct
-sub print_info #args are info
-{
-  foreach type in info
-  {
-    print "type_name: type"
-  }
-}  
+&shell();

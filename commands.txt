@@ -1,0 +1,2 @@
+grep hw6.pl 2 grepUsage.txt
+exit exit.pl 0 exitUsage.txt
