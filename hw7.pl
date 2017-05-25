@@ -36,6 +36,11 @@ sub shell
     # Both fork() and exec() are built-in functions.
     # Need to learn about how fork() handles PIDs (process IDs).
     
+    # Also want to do:
+    # $ sudo apt install libncurses5-dev libreadline-dev
+    # to get C headers for termcap, readline etc.
+    # Then do: cpanm Term::ReadLine::Gnu
+    
     # This all needs to be re-written/eliminated:
     while(<FILE>)
     {
