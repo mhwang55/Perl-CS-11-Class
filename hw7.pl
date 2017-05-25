@@ -26,7 +26,17 @@ sub shell
 
     # get the command and the arguments to the command
     my @input = split / /, $_;
-    open FILE, '<', "commands.txt";
+
+    # MIKE NOTES
+    # Need to find the command (first word on line) in the user's PATH
+    # variable.  Then invoke that with the appropriate arguments
+    # (all the other words on the line).  Use a fork/exec model.
+    # Fork creates a new process which is a clone of the existing one.
+    # Exec replaces the existing process with the new process.
+    # Both fork() and exec() are built-in functions.
+    # Need to learn about how fork() handles PIDs (process IDs).
+    
+    # This all needs to be re-written/eliminated:
     while(<FILE>)
     {
       chomp;
