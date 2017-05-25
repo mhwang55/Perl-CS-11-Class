@@ -12,11 +12,11 @@ Servers with perl.  Use server to run a perl script or use perl to run a server
 command
 
 hw4
-Webcrawler with perl.  Scrape data from websites.  May go deeper into
-formatting stuff
+Webcrawler with perl.  Scrape data from websites.  Refactoring complete
 
 hw5
-Threading with perl.  May use webcrawler from hw4 and multithread it
+#Threading with perl.  May use webcrawler from hw4 and multithread it
+OO programming?  Maybe another shell command such as cat
 
 hw6
 grep with perl.  Emulate the grep command in perl
