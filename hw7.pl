@@ -27,58 +27,25 @@ sub shell
     # get the command and the arguments to the command
     my @input = split / /, $_;
 
-    # MIKE NOTES
-    # Need to find the command (first word on line) in the user's PATH
-    # variable.  Then invoke that with the appropriate arguments
-    # (all the other words on the line).  Use a fork/exec model.
-    # Fork creates a new process which is a clone of the existing one.
-    # Exec replaces the existing process with the new process.
-    # Both fork() and exec() are built-in functions.
-    # Need to learn about how fork() handles PIDs (process IDs).
-    
-    # Also want to do:
-    # $ sudo apt install libncurses5-dev libreadline-dev
-    # to get C headers for termcap, readline etc.
-    # Then do: cpanm Term::ReadLine::Gnu
-    
-    # This all needs to be re-written/eliminated:
-    while(<FILE>)
+    # get the command as a var and the arguments in an array
+    my $command = shift(@input);
+
+    my $pid = fork();
+    if ($pid == 0)
     {
-      chomp;
-
-      # get the name of the command, the corresponding executable, and the
-      # number of expected arguments
-      my ($cmdName, $script, $argNum, $usageFile) = split / /, $_;
-      if ($input[0] eq $cmdName)
-      {
-        my $args = "";
-        shift @input;
-
-        # if the inputs are less than the expected number of arguments, print
-        # out the usage file instead
-        if ($argNum > @input)
-        {
-          system("vim $usageFile");
-#          open USAGE, '<', $usageFile;
-#          while(<USAGE>)
-#          {
-#            print($_);
-#          }
-#          close USAGE;
-          next;
-        }
-
-        # if command name is found, then concatenate the input arguments
-        # together and then run a system command
-        for (my $x = 0; $x < $argNum; $x++)
-        {
-          $args .= " $input[$x]";
-        }
-        print("$args\n");
-        system("./$script$args");
-      }
+      # child process
+      die("lsh") if (exec($command, @input) == -1);
     }
-    close FILE;
+    elsif ($pid < 0)
+    {
+      # error forking
+      printf("Error forking");
+    }
+    else
+    {
+      # parent process
+      wait;
+    }
   }
 }
 
