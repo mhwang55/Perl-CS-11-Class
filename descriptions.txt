@@ -14,17 +14,22 @@ command
 hw4
 Webcrawler with perl.  Scrape data from websites.  Refactoring complete
 
-hw5  << WORK ON THIS
+hw5
 OO programming.  Write versions of grep and cat in perl.  They share a lot
 of code, so use OO to factor out common code.
 
-hw6
+hw6  << forget about this for now
 ???
 
-hw7  << WORK ON THIS, use fork/exec
-Shell with perl (part 1).  Basic readline from stdin, execute command/fork,
-add in history support
+hw7  << finish this
+Shell with perl (part 1).  Basic readline from stdin, execute command/fork.
+TODO: "exit" keyword.  Control-D exits.
 
-hw8
-Shell with perl (part 2).  Control structures, parsing?, file support
+hw8  << do this
+More shell features:
+
+Filename globbing.  Glob patterns like "*.c" get expanded before exec ever sees them.
+N.B. use perl built-in "glob" command.
+
+History support: "history" keyword and !N syntax for rerunning lines in history.
 
