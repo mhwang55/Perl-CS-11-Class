@@ -23,7 +23,7 @@ hw6  << forget about this for now
 
 hw7  << finish this
 Shell with perl (part 1).  Basic readline from stdin, execute command/fork.
-TODO: "exit" keyword.  Control-D exits.
+TODO: "exit" keyword.  Control-D exits.  Control-C does not exit.
 
 hw8  << do this
 More shell features:
@@ -32,4 +32,9 @@ Filename globbing.  Glob patterns like "*.c" get expanded before exec ever sees 
 N.B. use perl built-in "glob" command.
 
 History support: "history" keyword and !N syntax for rerunning lines in history.
+
+Other optional things: control-C breaks out of a process spawned by the shell
+which is still running.
+
+Hint: go online and find out how to do all these things.
 
