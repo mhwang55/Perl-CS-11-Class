@@ -15,10 +15,13 @@ use Term::ReadLine;
 # no arguments to shell.  Just run it
 sub shell
 {
-  print(">> ");
-  while (<>)
+  my $prompt = ">> ";
+  my $term = Term::ReadLine->new('Simple Perl shell');
+  $term->Attribs->ornaments(0);
+  while (1)
   {
     print(">> ");
+    $_ = $term->readline($prompt);
     chomp;
 
     # if just an enter, skip the rest of the loop
