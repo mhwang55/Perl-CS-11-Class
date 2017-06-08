@@ -9,43 +9,40 @@
 use strict;
 use warnings;
 
-# below is c pseudocode
-sub shell # args are num, lstArgs (is a list)
-{
-  while (1)
-  {
-    my $childPid;
-    my ref cmdLine;
-    printPrompt();
-    cmdLine = readCommandLine();
-    chomp(cmdLine);
-    cmd = parseCommand(cmdLine);
+use Parse::Lex;
+@token = (
+  qw(
+     ADDOP    [-+]
+     LEFTP    [\(]
+     RIGHTP   [\)]
+     INTEGER  [1-9][0-9]*
+     NEWLINE  \n
+     
+    ),
+  qw(STRING),   [qw(" (?:[^"]+|"")* ")],
+  qw(ERROR  .*), sub {
+    die qq!can\'t analyze: "$_[1]"!;
+  }
+);
 
-    record command in history list
- 
-    if ( isBuiltInCommand(cmd) )
-    {
-      executeBuiltInCommand(cmd);
-    }
-    else
-    {		
-      childPid = fork();
-      if (childPid == 0)
-      {
-        executeCommand(cmd); # calls execvp or perl equivalent
-      }
-      else
-      {
-        if (isBackgroundJob(cmd))
-        {
-          record in list of background jobs
-        }
-        else
-        {
-          waitpid (childPid);
-        }
-      }
-    }
+Parse::Lex->trace;  # Class method
+$lexer = Parse::Lex->new(@token);
+$lexer->from(\*DATA);
+print "Tokenization of DATA:\n";
+
+TOKEN:while (1) {
+  $token = $lexer->next;
+  if (not $lexer->eoi) {
+    print "Line $.\t";
+    print "Type: ", $token->name, "\t";
+    print "Content:->", $token->text, "<-\n";
+  } else {
+    last TOKEN;
   }
 }
 
+__END__
+#1+2-5
+#"a multiline
+#string with an embedded "" in it"
+#an invalid string with a "" in it"
