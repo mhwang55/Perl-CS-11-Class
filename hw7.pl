@@ -11,6 +11,8 @@ use strict;
 use warnings;
 use Term::ReadLine;
 
+$| = 1;
+
 # no arguments to shell.  Just run it
 sub shell
 {
@@ -20,11 +22,13 @@ sub shell
   $term->Attribs->ornaments(0);
   while (1)
   {
-    print(">> ");
     $_ = $term->readline($prompt);
-    chomp;
-    exit unless defined $_;
+    unless (defined $_) {
+       print("  \n");  # hack to make ^D invisible
+       exit;
+    }
     exit if $_ eq 'exit';
+    chomp;
 
     # if just an enter, skip the rest of the loop
     next if (!$_);

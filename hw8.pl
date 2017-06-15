@@ -21,10 +21,13 @@ sub shell
   open WHISTORY, '>>', ".history";
   while (1)
   {
-    print(">> ");
     $_ = $term->readline($prompt);
-    if(!defined $_ or $_ eq 'exit')
+    if(!defined $_)
     {
+      print ("  \n");  # make ^D invisible
+      close WHISTORY;
+      exit;
+    } elsif ($_ eq 'exit') {
       close WHISTORY;
       exit;
     }
