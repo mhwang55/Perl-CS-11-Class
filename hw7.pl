@@ -4,9 +4,8 @@
 # to read from standard input, parse the command string into a program and
 # args, and execute it.
 
-# It should also be able to read in text files. (bonus maybe?)
-
-# To exit out of the shell, just hit Ctrl-C
+# To exit out of the shell, just hit Ctrl-D or type in 'exit'.  Ctrl-C no
+# longer works
 
 use strict;
 use warnings;
@@ -15,6 +14,7 @@ use Term::ReadLine;
 # no arguments to shell.  Just run it
 sub shell
 {
+  $SIG{INT} = 'IGNORE';
   my $prompt = ">> ";
   my $term = Term::ReadLine->new('Simple Perl shell');
   $term->Attribs->ornaments(0);
@@ -23,6 +23,8 @@ sub shell
     print(">> ");
     $_ = $term->readline($prompt);
     chomp;
+    exit unless defined $_;
+    exit if $_ eq 'exit';
 
     # if just an enter, skip the rest of the loop
     next if (!$_);
